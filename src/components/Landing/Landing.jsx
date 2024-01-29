@@ -5,7 +5,7 @@ import Mug from "../../images/Mug1.png";
 import PinkTShirt from "../../images/Tshirt1.png";
 import BlackTShirt from "../../images/Tshirt2.png";
 import PinkBottle from "../../images/Bottle1.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Landing() {
 	const [currentTShirt, setCurrentTShirt] = useState(PinkTShirt);
@@ -16,6 +16,46 @@ export default function Landing() {
 	const handlePinkTShirtChange = () => {
 		setCurrentTShirt(PinkTShirt);
 	};
+
+	const refs = useRef([]);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						if (entry.target.dataset.animation === "l") {
+							entry.target.classList.add("animate-on-scroll-l");
+						} else {
+							entry.target.classList.add("animate-on-scroll-r");
+						}
+					}
+				});
+			},
+			{
+				root: null,
+				rootMargin: "0px",
+				threshold: 0.2,
+			}
+		);
+
+		refs.current.forEach((ref) => {
+			if (ref) observer.observe(ref);
+		});
+
+		return () => {
+			refs.current.forEach((ref) => {
+				if (ref) observer.unobserve(ref);
+			});
+		};
+	}, []);
+
+	const addToRefs = (el) => {
+		if (el && !refs.current.includes(el)) {
+			refs.current.push(el);
+		}
+	};
+
 	return (
 		<>
 			<div className="wrapper">
@@ -30,7 +70,7 @@ export default function Landing() {
 						<div className="line-two"></div>
 						<img src={Mug} alt="Pink mug" />
 					</section>
-					<section id="main-info">
+					<section ref={addToRefs} id="main-info" className="animatable">
 						<p>
 							{" "}
 							<CircleIcon className="dotIco" />
@@ -39,7 +79,12 @@ export default function Landing() {
 							tempor mollis purus nec fringilla.{" "}
 						</p>
 					</section>
-					<section id="t-shirt">
+					<section
+						ref={addToRefs}
+						id="t-shirt"
+						className="animatable"
+						data-animation="l"
+					>
 						<div className="product-info">
 							<h2>T-shirt</h2>
 							<p>
@@ -60,7 +105,7 @@ export default function Landing() {
 						</div>
 						<img src={currentTShirt} alt="Pink T-shirt" />
 					</section>
-					<section id="bottle">
+					<section ref={addToRefs} id="bottle" className="animatable">
 						<div className="product-info">
 							<h2>Bottle</h2>
 							<p>

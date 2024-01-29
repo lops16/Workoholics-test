@@ -6,6 +6,9 @@
     width: 80%;
     height: 20px;
     cursor: pointer;
+    &:hover{
+        transform: translate(0px, -5px);
+    }
 }
 @mixin btn-black{
     border: none;
@@ -13,6 +16,9 @@
     width: 80%;
     height: 20px;  
     cursor: pointer;
+    &:hover{
+        transform: translate( 0px, -5px);
+    }
 }
 
 @mixin btn-buy{
