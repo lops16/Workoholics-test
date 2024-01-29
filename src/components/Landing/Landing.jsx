@@ -23,13 +23,12 @@ export default function Landing() {
 					<section id="main-product">
 						<h1>
 							<span className="title-one">LOREM</span>
-							<span className="line-one"></span>
-
-							<img src={Mug} alt="Pink mug" />
 							<span className="title-over-image">IPSUM</span>
 							<span className="title-two">DOLOR</span>
-							<span className="line-two"></span>
 						</h1>
+						<div className="line-one"></div>
+						<div className="line-two"></div>
+						<img src={Mug} alt="Pink mug" />
 					</section>
 					<section id="main-info">
 						<p>
@@ -77,7 +76,10 @@ export default function Landing() {
 					</section>
 				</main>
 				<aside>
-					<h4>Contact us</h4>
+					<section id="contact">
+						<div className="line"></div>
+						<h4>Contact us</h4>
+					</section>
 				</aside>
 			</div>
 		</>

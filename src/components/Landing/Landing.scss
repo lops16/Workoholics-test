@@ -2,42 +2,61 @@
 @import '../../styles/mixings';
 
 @media (min-width: 370px) {
-main{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: auto;
-  gap: 4rem;
-  grid-template-areas: 
-    "product product product product product product"
-    "info info info info info info"
-    "t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt "
-    " bottle bottle bottle bottle bottle bottle"
-    ". . . . . .";
-    margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  overflow-x: hidden;
-}
-
-#main-product{
-  grid-area: product;
-  height: 800px;
-  h1{
-    
-    font-size: $h1-mobile;
-    font-weight: $font-bold;
-    position: relative;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-
-    
-
-    .title-one{
+  main{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "product product product product product product"
+      "info info info info info info"
+      "t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt "
+      " bottle bottle bottle bottle bottle bottle"
+      ". . . . . .";
+      margin-left: 0.5rem;
+      overflow-x: hidden;
+  }
+  
+  #main-product{
+    grid-area: product;
+    height: 750px;
+    h1{
+      font-size: $h1-mobile;
+      font-weight: $font-bold;
       position: relative;
-      z-index: 1; 
-      top: 55px;
-      right: -90px;
-      animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      .title-one{
+        position: relative;
+        z-index: 1; 
+        width: 80%;
+        top: 75px;
+        left: 5%;
+        transform: translateX(-50%);
+        animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+  
+     
+      .title-two{
+        position: relative;
+        z-index: 1; 
+        top: 90px;
+        left: 28%;
+        transform: translateX(-50%);
+        padding-top: 10px;
+        animation: slide-in-left 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+    
+    .title-over-image{
+      position: relative;
+      z-index: 3;
+      top: 90px;
+      right: 28%;
+        transform: translateX(-50%);
+      animation: slide-in-right 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    
+    
     }
 
     .line-one{
@@ -46,53 +65,40 @@ main{
       border-bottom: solid $black-color 0.5px;
       position: relative;
       z-index: 1; 
-      top: 40px;
-      left: -90px;
+      top: -290px;
+      right: 10%;
+      transform: translateX(-50%);
       animation: slide-in-left 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
-    .title-two{
+    .line-two{
+      height: 20px;
+      width: 60%;
+      border-bottom: solid $black-color 0.5px;
       position: relative;
       z-index: 1; 
-      top: -260px;
-      right: -105px;
-      padding-top: 10px;
-      animation: slide-in-left 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      top: -120px;
+      right: 10%;
+      transform: translateX(-50%);
+      animation: slide-in-left 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
-  .line-two{
-    height: 20px;
-    width: 55%;
-    border-bottom: solid $black-color 0.5px;
-    position: relative;
-    z-index: 1; 
-    top: -450px;
-    left: -80px;
-    animation: slide-in-left 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    img{
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: -380px;
+      left: 20%;
+      transform: translateX(-50%);
+      z-index: 2; 
+      animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    }
+    
   }
   
-
-  .title-over-image{
-    position: relative;
-    z-index: 3;
-    top: -280px;
-    left: -105px;
-    animation: slide-in-right 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-  
-  img{
-    width: 100%;
-    height: auto;
-    position: relative;
-    top: -15px;
-    right: -80px;
-    z-index: 2; 
-    animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-  }
-  }
-  
-}
 
 #main-info{
   grid-area: info;
+  margin-right: 0.5rem;
+  height: 250px;
 p{
   font-size: $main-text-mobile;
   font-weight: $font-medium;
@@ -166,11 +172,9 @@ p{
   img{
     position: relative;
     z-index: 1;
-    top: -30%;
-    right: -90px;
     width: 100%;
     height: auto;
-    transform: scaleX(-1) rotate(-13deg);
+    transform: scaleX(-1) rotate(-13deg) translateX(-40px) translateY(-230px);
     
   }
 }
@@ -280,37 +284,196 @@ aside{
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: 1fr;
-    grid-template-areas: " main main main main main main main main main main main main main aside";
+    grid-template-areas: " . main main main main main main main main main main main main aside";
 
   }
   aside{
     grid-area: aside;
     display: block;
-    h4{
-      transform: rotate(90deg);
-      transform-origin: left bottom;
-      white-space: nowrap;
+    width: 60%;
+    
+    #contact{
+      margin-top: 37rem;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .line{
+        width: 1%;
+        height: 40px;
+        background-color: $main-color;
+      }
+
+      h4{
+        color: $black-color;
+        position: relative;
+        display: inline-block;
+        width: 80%;
+        top: -17px;
+        left: 20%;
+        transform: translateX(-50%);
+        font-size: $main-text-mobile;
+        font-weight: $font-medium;
+        transform: rotate(90deg);
+        transform-origin: left bottom;
+        white-space: nowrap;
+        cursor: pointer;
+       
+      }
+
+      h4::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        background: $main-color;
+        transition: width 0.3s ease-in-out;
+        
+      }
+      h4:hover::after {
+        width: 200%;
+      }
+
     }
+    
   }
 
   main{
     grid-area: main;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 3fr 1fr 2fr 2fr 0.5fr;
-  gap: 1rem;
-  grid-template-areas: 
+    grid-template-rows: auto;
+    gap: 4rem;
+    grid-template-areas: 
     ".  product product product product product product product product product product product"
     ". . . . info info info info info info info info"
     "t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt . . . . . . "
     ". . . . . . bottle bottle bottle bottle bottle bottle"
     ". . . . . . . . . . . .";
+
+    #main-product{
+      height: 1050px;
+      h1{
+        font-size: $h1-desktop;
+        font-weight: $font-bold;
+        .title-one{
+          top: 100px;
+          left: -12%;
+        }
+    
+       
+        .title-two{
+          z-index: 1; 
+          top: 95px;
+          left: -13%;
+        }
+      
+      .title-over-image{
+        top: 130px;
+        right: -5%;
+
+      }
+      
+      
+      }
+  
+      .line-one{
+        width: 105%;
+        top: -490px;
+        right: 10%;
+      }
+      .line-two{
+        width: 105%;
+        top: -230px;
+        right: 10%;
+      }
+      img{
+        width: 57%;
+        top: -720px;
+        left: 44%;
+      }
+      
+    }
+
+    #main-info{
+      grid-area: info;
+      margin-right: 0.5rem;
+      height: 250px;
+    p{
+      font-size: $main-text-desktop;
+      font-weight: $font-medium;
+      text-align: justify;
+      .dotIco{
+        padding: 0;
+      }
+    }
+    }
+
+    #t-shirt{
+      height: 500px;
+      .product-info{
+        top: 25%;
+        padding-bottom: 1rem;
+        grid-template-areas: 
+        "title title title title . ."
+        "txt txt txt txt . ."
+        "btnBlack btnPink . . btnBuy btnBuy";
+    
+        h2{
+          font-size: $h2-desktop;
+        }
+        p{
+          width: 80%;
+          font-size: $small-text-desktop;
+        }
+        #btn-buy{
+          @include btn-buy-desktop
+        }
+      }
+        
+      img{
+        width: 70%;
+        transform: scaleX(-1) rotate(-11deg) translateX(-70px) translateY(-250px);
+        
+        
+      }
+    }
+    #bottle{
+      height: 500px;
+      .product-info{
+        top: 25%;
+        padding-bottom: 1rem;
+        grid-template-areas: 
+        "title title title title . ."
+        "txt txt txt txt . ."
+        "btnPink . . . btnBuy btnBuy";
+    
+        h2{
+          font-size: $h2-desktop;
+        }
+        p{
+          width: 80%;
+          font-size: $small-text-desktop;
+        }
+        #btn-buy{
+          @include btn-buy-desktop
+        }
+      }
+        
+      img{
+        z-index: 1;
+        top: -48%;
+        right: -43%;
+        width: 40%;
+        height: auto;
+  
+        
+      }
+    }
     
   }
 
-  #main-product{
-      background-color: rgb(37, 121, 93);
-      height: 700px;
-    }
+  
 }
 
 

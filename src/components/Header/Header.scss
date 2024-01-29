@@ -1,75 +1,80 @@
 @import '../../styles/variables';
 @import '../../styles/mixings';
 
-header{
-    background-color: white;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    gap: 0;
-    grid-template-areas: 
-    ". . . . . ."
-    "logo logo logo . . icons"
-    ". . mobile mobile mobile mobile";
-    margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.logo-container{
-    grid-area: logo;
-    img {
-        margin-top: 0.7rem;
-        width: 70%;
-        height: auto;
+@media (min-width: 370px){
+    header{
+        background-color: white;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+        gap: 0;
+        grid-template-areas: 
+        ". . . . . ."
+        "logo logo logo . . icons"
+        ". . mobile mobile mobile mobile";
+        margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+    
+    .logo-container{
+        grid-area: logo;
+        img {
+            margin-top: 0.7rem;
+            width: 70%;
+            height: auto;
+          }
+    }
+    
+    #menu-icons{
+        grid-area: icons;
+        
+    }
+    
+    #mobile-nav{
+        grid-area: mobile;
+        width: 100%;
+        height: 17%;
+        background-color: white;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    
+        ul{
+            display: flex;
+            justify-content: space-evenly;
+            font-size: $link-text-mobile;
+            
+            .menu-mobile-one{
+                grid-area: one;
+                cursor: pointer;
+            }
+            .menu-mobile-two{
+                grid-area: two;
+                cursor: pointer;
+            }
+            .menu-mobile-three{
+                grid-area: three;
+                cursor: pointer;
+            }
+            
+        }
+    }
+    
+    #desktop-nav{
+        display: none;
+    }
+    
+    @keyframes slide-in-right {
+        0% {
+          transform: translateX(1000px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
 }
 
-#menu-icons{
-    grid-area: icons;
-    
-}
 
-#mobile-nav{
-    grid-area: mobile;
-    width: 100%;
-    height: 17%;
-    background-color: white;
-    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-    ul{
-        display: flex;
-        justify-content: space-evenly;
-        
-        .menu-mobile-one{
-            grid-area: one;
-            cursor: pointer;
-        }
-        .menu-mobile-two{
-            grid-area: two;
-            cursor: pointer;
-        }
-        .menu-mobile-three{
-            grid-area: three;
-            cursor: pointer;
-        }
-        
-    }
-}
-
-#desktop-nav{
-    display: none;
-}
-
-@keyframes slide-in-right {
-    0% {
-      transform: translateX(1000px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
 
 @media (min-width: 1440px) {
 
@@ -86,12 +91,15 @@ header{
 
     .logo-container{
         img {
-            width: 60%;
+            width: 80%;
             height: auto;
           }
     }
 
-    #mobile-menu{
+    #mobile-nav{
+        display: none;
+    }
+    #menu-icons{
         display: none;
     }
     
@@ -103,16 +111,40 @@ header{
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 1fr;
             grid-template-areas: "one two three";
+            
+            cursor: pointer;
+            
+            a {
+                color: $black-color;
+                text-decoration: none;
+                font-size: $link-text-desktop;
+                font-weight: $font-medium;
+                display: inline-block;
+              }
+              a::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 3px;
+                background: $main-color;
+                transition: width 0.3s ease-in-out;
+                
+              }
+              a:hover::after {
+                width: 100%;
+              }
+
+            .menu-one{
+                grid-area: one;
+            }
+            .menu-two{
+                grid-area: two;
+            }
+            .menu-three{
+                grid-area: three;
+            }
         }
-        .menu-one{
-            grid-area: one;
-        }
-        .menu-two{
-            grid-area: two;
-        }
-        .menu-three{
-            grid-area: three;
-        }
+        
     }
 
 

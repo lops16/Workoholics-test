@@ -19,9 +19,16 @@ export default function Header() {
 			</div>
 			<nav id="desktop-nav">
 				<ul>
-					<li className="menu-one">Menu 1</li>
-					<li className="menu-two">Menu 2</li>
-					<li className="menu-three">Menu 3</li>
+					<li className="menu-one">
+						{" "}
+						<a href="">Menu 1</a>
+					</li>
+					<li className="menu-two">
+						<a href="">Menu 2</a>
+					</li>
+					<li className="menu-three">
+						<a href="">Menu 3</a>
+					</li>
 				</ul>
 			</nav>
 			<section id="menu-icons">

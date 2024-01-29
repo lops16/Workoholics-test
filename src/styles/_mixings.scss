@@ -18,7 +18,15 @@
 @mixin btn-buy{
     font-size: $link-text-mobile;
     font-weight: $font-medium;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    width: 70%;
+    cursor: pointer;
+}
+@mixin btn-buy-desktop{
+    font-size: $link-text-desktop;
+    font-weight: $font-medium;
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     width: 70%;
     cursor: pointer;
