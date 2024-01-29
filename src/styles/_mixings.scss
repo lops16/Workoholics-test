@@ -45,10 +45,41 @@
         cursor: not-allowed;
     }
 }
+@mixin btn-submit-desktop{
+    color: white;
+    font-size: $link-text-desktop;
+    font-weight: $font-medium;
+    background-color: $black-color;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+
+    &:disabled{
+        color: rgb(179, 179, 179);
+        cursor: not-allowed;
+    }
+}
 
 @mixin email-form{
     background-color: $black-color;
     font-size: $link-text-mobile;
+    font-weight: $font-medium;
+    color: rgb(218, 217, 217);
+    height: 35px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white ;
+
+    &:focus{
+        outline: none;
+        border: none;
+        border-bottom: 2px solid white ;
+        
+    }
+}
+@mixin email-form-desktop{
+    background-color: $black-color;
+    font-size: $link-text-desktop;
     font-weight: $font-medium;
     color: rgb(218, 217, 217);
     height: 35px;

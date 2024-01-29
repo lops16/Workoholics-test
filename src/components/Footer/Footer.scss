@@ -1,110 +1,176 @@
 @import '../../styles/variables';
 @import '../../styles/mixings';
 
-footer{
-    background-color: $black-color;
 
-}
-
-#footer-content{
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
-    gap: 0;
-    grid-template-areas: 
-    " title title title title title ."
-    ". . . . . ."
-    " form form form form form form"
-    ". . . . . ."
-    " info info info . . .";
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-
+@media (min-width: 370px) { 
+    footer{
+        background-color: $black-color;
     
-
-}
-
-h3{
-    margin-top: 2rem;
-    width: 90%;
-    height: 60px;
-    grid-area: title;
-    font-size: $h3-mobile;
-    font-weight: $font-bold;
-}
-
-#email-form{
-    grid-area: form;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 0.5rem;
-    grid-template-areas: 
-    "email email email email email email"
-    "terms termsTxt termsTxt termsTxt termsTxt ."
-    "submit submit . . . .";
-
-    .email-box{
-        grid-area: email;
-        @include email-form
-
     }
-    .terms-check{
-        grid-area: terms;
+    
+    #footer-content{
         color: white;
-        padding: 0.2rem;
-            vertical-align: middle;
-            position: relative;
-            top: -27%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+        gap: 0;
+        grid-template-areas: 
+        " title title title title title ."
+        ". . . . . ."
+        " form form form form form form"
+        ". . . . . ."
+        " info info info . . .";
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    
         
+    
     }
-    p{
-        grid-area: termsTxt;
-        font-size: $small-text-mobile;
-        font-weight: $font-medium;
-        span{
+    
+    h3{
+        margin-top: 2rem;
+        width: 90%;
+        height: 60px;
+        grid-area: title;
+        font-size: $h3-mobile;
+        font-weight: $font-bold;
+    }
+    
+    #email-form{
+        grid-area: form;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+        gap: 0.5rem;
+        grid-template-areas: 
+        "email email email email email email"
+        "terms terms terms terms terms ."
+        "submit submit . . . .";
+    
+        .email-box{
+            grid-area: email;
+            @include email-form
+    
+        }
+        #terms-check{
+            grid-area: terms;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            .terms-ico{
+                color: white;
+                padding: 0.2rem;
+                align-self: baseline;
+                
+            }
+            p{
+                font-size: $small-text-mobile;
+                font-weight: $font-medium;
+                width: 90%;
+                span{
+                    cursor: pointer;
+                    font-weight: $font-bold;
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        .submit-btn{
+            grid-area: submit;
+            
+            .arrowIco{
+                padding: 0.2rem;
+                vertical-align: middle;
+                position: relative;
+                top: -2%;
+            }
+            @include btn-submit
+        }
+    }
+    
+    #contact-info{
+        grid-area: info;
+        height: 70px;
+        
+        p{
+            font-size: $link-text-mobile;
+            font-weight: $font-medium;
+            padding-top: 0.4rem;
             cursor: pointer;
-            font-weight: $font-bold;
-            text-decoration: underline;
+            &:hover{
+                text-decoration: underline;
+            }
         }
-    }
-    .submit-btn{
-        grid-area: submit;
-        
-        .arrowIco{
-            padding: 0.2rem;
-            vertical-align: middle;
-            position: relative;
-            top: -2%;
-        }
-        @include btn-submit
     }
 }
 
-#contact-info{
-    grid-area: info;
-    height: 70px;
-    
-    p{
-        font-size: $link-text-mobile;
-        font-weight: $font-medium;
-        padding-top: 0.4rem;
-        cursor: pointer;
-        &:hover{
-            text-decoration: underline;
-        }
-    }
-}
     
 
 @media (min-width: 1440px) { 
     #footer-content{
-        grid-template-columns: repeat(12, 1fr);
+        height: 500px;
+        grid-template-columns: repeat(14, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 
-        "info info info . . title title title title . . ."
-        ". . . . . form form form form form form form"
+        ". info info info . . title title title title . . . ."
+        ". . . . . . form form form form form form form .";
         
+    }
+
+    h3{
+        margin-top: 5rem;
+        width: 90%;
+        height: 60px;
+        font-size: $h3-desktop;
+    }
+
+    #email-form{
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-areas: 
+        "email email email email email email email email ."
+        "terms terms terms terms terms . submit submit .";
+        height: 150px;
+    
+        .email-box{
+            
+            @include email-form-desktop
+    
+        }
+        #terms-check{
+            height: 35px;
+            .terms-ico{
+                color: white;
+                padding: 0.2rem;
+                align-self: baseline;
+                
+            }
+        }
+        .submit-btn{
+            height: 35px;
+            .arrowIco{
+                padding: 0.2rem;
+                vertical-align: middle;
+                position: relative;
+                top: -2%;
+            }
+            @include btn-submit-desktop
+        }
+    }
+
+    #contact-info{
+        height: 70px;
+        margin-top: 5rem;
+        
+        p{
+            font-size: $link-text-desktop;
+            font-weight: $font-medium;
+            padding-top: 0.4rem;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
 }

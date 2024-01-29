@@ -17,14 +17,16 @@ export default function Footer() {
 							placeholder="Email"
 							className="email-box"
 						/>
-						<Checkbox
-							className="terms-check"
-							checked={isChecked}
-							onChange={(e) => setIsChecked(e.target.checked)}
-						/>
-						<p>
-							I have read and accepted the <span> Terms and Conditions.</span>{" "}
-						</p>
+						<div id="terms-check">
+							<Checkbox
+								className="terms-ico"
+								checked={isChecked}
+								onChange={(e) => setIsChecked(e.target.checked)}
+							/>
+							<p>
+								I have read and accepted the <span> Terms and Conditions.</span>{" "}
+							</p>
+						</div>
 
 						<button className="submit-btn" disabled={!isChecked}>
 							Submit <SubdirectoryArrowRightIcon className="arrowIco" />
