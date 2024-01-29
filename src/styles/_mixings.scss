@@ -1,0 +1,57 @@
+@import './_variables';
+
+@mixin btn-pink{
+    border: none;
+    background-color: $main-color;
+    width: 80%;
+    height: 20px;
+    cursor: pointer;
+}
+@mixin btn-black{
+    border: none;
+    background-color: $black-color;
+    width: 80%;
+    height: 20px;  
+    cursor: pointer;
+}
+
+@mixin btn-buy{
+    font-size: $link-text-mobile;
+    font-weight: $font-medium;
+    background-color: white;
+    border: none;
+    width: 70%;
+    cursor: pointer;
+}
+@mixin btn-submit{
+    color: white;
+    font-size: $link-text-mobile;
+    font-weight: $font-medium;
+    background-color: $black-color;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+
+    &:disabled{
+        color: rgb(179, 179, 179);
+        cursor: not-allowed;
+    }
+}
+
+@mixin email-form{
+    background-color: $black-color;
+    font-size: $link-text-mobile;
+    font-weight: $font-medium;
+    color: rgb(218, 217, 217);
+    height: 35px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white ;
+
+    &:focus{
+        outline: none;
+        border: none;
+        border-bottom: 2px solid white ;
+        
+    }
+}

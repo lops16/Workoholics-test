@@ -1,0 +1,316 @@
+@import '../../styles/variables';
+@import '../../styles/mixings';
+
+@media (min-width: 370px) {
+main{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  gap: 4rem;
+  grid-template-areas: 
+    "product product product product product product"
+    "info info info info info info"
+    "t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt "
+    " bottle bottle bottle bottle bottle bottle"
+    ". . . . . .";
+    margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  overflow-x: hidden;
+}
+
+#main-product{
+  grid-area: product;
+  height: 800px;
+  h1{
+    
+    font-size: $h1-mobile;
+    font-weight: $font-bold;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+
+    
+
+    .title-one{
+      position: relative;
+      z-index: 1; 
+      top: 55px;
+      right: -90px;
+      animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .line-one{
+      height: 20px;
+      width: 50%;
+      border-bottom: solid $black-color 0.5px;
+      position: relative;
+      z-index: 1; 
+      top: 40px;
+      left: -90px;
+      animation: slide-in-left 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    .title-two{
+      position: relative;
+      z-index: 1; 
+      top: -260px;
+      right: -105px;
+      padding-top: 10px;
+      animation: slide-in-left 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+  .line-two{
+    height: 20px;
+    width: 55%;
+    border-bottom: solid $black-color 0.5px;
+    position: relative;
+    z-index: 1; 
+    top: -450px;
+    left: -80px;
+    animation: slide-in-left 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+
+  .title-over-image{
+    position: relative;
+    z-index: 3;
+    top: -280px;
+    left: -105px;
+    animation: slide-in-right 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  img{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -15px;
+    right: -80px;
+    z-index: 2; 
+    animation: roll-in-blurred-left 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  }
+  }
+  
+}
+
+#main-info{
+  grid-area: info;
+p{
+  font-size: $main-text-mobile;
+  font-weight: $font-medium;
+  text-align: justify;
+  .dotIco{
+    color: $main-color ;
+    padding: 0.2rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    position: relative;
+    top: -1.5px;
+    
+  }
+
+  span{
+    font-weight: $font-bold;
+  }
+}
+}
+
+#t-shirt{
+  height: 600px;
+  grid-area: t-shirt;
+  .product-info{
+    position: relative;
+    top: 23%;
+    z-index: 2;
+    border-bottom: solid $black-color 1px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    grid-template-areas: 
+    "title title title . . ."
+    "txt txt txt . . ."
+    "btnBlack btnPink . . . ."
+    "btnBuy btnBuy . . . .";
+
+    h2{
+      grid-area: title;
+      font-size: $h2-mobile;
+      font-weight: $font-bold;
+    }
+    p{
+      grid-area: txt;
+      font-size: $small-text-mobile;
+      font-weight: $font-medium;
+      text-align: justify;
+      padding-bottom: 0.5rem;
+    }
+    #btn-black-tShirt{
+      grid-area: btnBlack;
+      @include btn-black
+    }
+    #btn-pink-tShirt{
+      grid-area: btnPink;
+      @include btn-pink
+    }
+    #btn-buy{
+      grid-area: btnBuy;
+      .arrowIco{
+        padding: 0.2rem;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+      }
+      @include btn-buy
+    }
+  }
+    
+  img{
+    position: relative;
+    z-index: 1;
+    top: -30%;
+    right: -90px;
+    width: 100%;
+    height: auto;
+    transform: scaleX(-1) rotate(-13deg);
+    
+  }
+}
+
+#bottle{
+overflow: hidden;
+grid-area: bottle;
+height: 600px;
+.product-info{
+  position: relative;
+  top: 23%;
+  z-index: 2;
+  border-bottom: solid $black-color 1px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  grid-template-areas: 
+  "title title title . . ."
+  "txt txt txt . . ."
+  "btnPink . . . . ."
+  "btnBuy btnBuy . . . .";
+
+  h2{
+    grid-area: title;
+    font-size: $h2-mobile;
+    font-weight: $font-bold;
+  }
+  p{
+    grid-area: txt;
+    font-size: $small-text-mobile;
+    font-weight: $font-medium;
+    text-align: justify;
+    padding-bottom: 0.5rem;
+  }
+  #btn-pink-bottle{
+    grid-area: btnPink;
+    @include btn-pink
+  }
+  #btn-buy{
+    grid-area: btnBuy;
+    .arrowIco{
+      padding: 0.2rem;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    @include btn-buy
+  }
+}
+  
+img{
+  position: relative;
+  z-index: 1;
+  top: -38%;
+  right: -43%;
+  width: 60%;
+  height: auto;
+  
+  
+}
+}
+
+aside{
+  display: none;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes roll-in-blurred-left {
+  0% {
+    transform: translateX(-1000px) rotate(-720deg);
+    filter: blur(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+}
+
+@media (min-width: 1440px) { 
+  .wrapper{
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: " main main main main main main main main main main main main main aside";
+
+  }
+  aside{
+    grid-area: aside;
+    display: block;
+    h4{
+      transform: rotate(90deg);
+      transform-origin: left bottom;
+      white-space: nowrap;
+    }
+  }
+
+  main{
+    grid-area: main;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 3fr 1fr 2fr 2fr 0.5fr;
+  gap: 1rem;
+  grid-template-areas: 
+    ".  product product product product product product product product product product product"
+    ". . . . info info info info info info info info"
+    "t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt . . . . . . "
+    ". . . . . . bottle bottle bottle bottle bottle bottle"
+    ". . . . . . . . . . . .";
+    
+  }
+
+  #main-product{
+      background-color: rgb(37, 121, 93);
+      height: 700px;
+    }
+}
+
+
